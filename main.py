@@ -1,4 +1,17 @@
 def main():
+    book_path = "books/frankenstein.txt"
+    file_contents = get_document_content(book_path)
+    letter_dic = get_document_letters_dict(file_contents)
+
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{count_words(file_contents)} words found in the document\n")
+
+    for letter in get_sorted_letter_count_list(letter_dic):
+        if letter["char"].isalpha():
+            print(f"The '{letter['char']}' character was found {letter['count']} times")
+
+    print("--- End report ---")
+
     return 0
 
 
