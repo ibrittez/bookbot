@@ -1,6 +1,18 @@
 def main():
     return 0
 
+def get_document_letters_dict(document):
+    text_content = {}
+    for word in document.split():
+        aux_dictionary = get_word_letters_dict(word)
+        for key in aux_dictionary:
+            if key not in text_content:
+                text_content[key] = aux_dictionary[key]
+            else:
+                text_content[key] += aux_dictionary[key]
+    return text_content
+
+
 def get_word_letters_dict(word):
     word_content = {}
     lowered_word = word.lower()
